@@ -23,6 +23,7 @@
     <form action="{{ route('custs.update', $cust->id) }}" method="post">
       @csrf
       @method('patch')
+      
       <div class="row mb-3">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Фамилия, имя, отчество</label>
         <div class="col-sm-10">

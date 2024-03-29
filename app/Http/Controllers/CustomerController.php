@@ -11,7 +11,7 @@ class CustomerController extends Controller
     $custs_autos = DB::table('customers')
                       ->join('autos', 'customers.id', '=','autos.cust_id')
                       ->select('customers.id','customers.full_name', 'autos.id as auto_id', 'autos.brand', 'autos.model', 'autos.color', 'autos.reg_number')
-                      ->paginate(3);                 
+                      ->paginate(10);                 
     return view('custs.index', compact('custs_autos'));
   }
 
@@ -36,7 +36,7 @@ class CustomerController extends Controller
       'reg_number' => 'required|unique:autos',
       'is_parking' => 'required',
     ]);
-
+    
     $cust_id = DB::table('customers')->insertGetId($cust_new);
     $auto_new['cust_id'] = $cust_id;
     DB::table('autos')->insert($auto_new);

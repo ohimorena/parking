@@ -19,4 +19,6 @@ Route::patch('/autos/{auto}', [AutoController::class, 'update'])->name('autos.up
 Route::delete('/autos/{auto}', [AutoController::class, 'destroy'])->name('autos.destroy');
 
 Route::get('/on_parking', [OnParkingController::class, 'index'])->name('on_parking.index');
-Route::patch('/on_parking/{auto}', [OnParkingController::class, 'update'])->name('on_parking.update');
+Route::get('/on_parking/autos/{cust}', [OnParkingController::class, 'get_autos'])->name('on_parking.get_autos');
+Route::patch('/on_parking/{auto}/remove', [OnParkingController::class, 'update_remove'])->name('on_parking.update_remove');
+Route::post('/on_parking', [OnParkingController::class, 'store'])->name('on_parking.store');
